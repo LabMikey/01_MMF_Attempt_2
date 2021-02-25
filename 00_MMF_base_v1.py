@@ -17,10 +17,10 @@ def not_blank(question):
             print("Sorry - this can't be blank")
 
 # checks for an interger between two values
-def int_check(question, low_num, high_num):
 
-    error = "Please enter a whole number between {} " \
-    "and {}".format(low_num, high_num)
+# checks for an interger more than 0
+def int_check(question):
+    error = "Please enter a whole number that is more than 13 and 130"
 
     valid = False
     while not valid:
@@ -29,13 +29,11 @@ def int_check(question, low_num, high_num):
         try:
             response = int(input(question))
 
-            if low_num < response < high_num:
+            if response <= 0:
+                print(error)
+            else:
                 return response
 
-            else:
-                print(error)
-
-        # If an interger is not entered, display an error
         except ValueError:
             print(error)
 
@@ -73,17 +71,18 @@ while name != "xxx" and count < MAX_TICKETS:
     if name == "xxx":
         break
 
-    count += 1
-
     # main routine goes here
     age = int_check("Age: ")
 
-    # chack that age is valid...
+    # check that age is valid...
     if age < 12:
         print("sorry you are too young for this movie")
         continue
     elif age > 130:
         print("That is very old - it looks like a mistake")
+        continue
+
+    count += 1
 
 if count == MAX_TICKETS:
     print("You have sold all the available tickets!")
@@ -91,7 +90,6 @@ else:
     print("You have sold {} tickets.  \n"
           "There are {} places still available"
           .format(count, MAX_TICKETS - count))
-
 
             # Get ticket holder name and check its not blank
 
