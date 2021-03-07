@@ -16,3 +16,6 @@ def int_check (question):
                 print(error)
                 else:
                     return response
+
+        except ValueError:
+                print(error)
