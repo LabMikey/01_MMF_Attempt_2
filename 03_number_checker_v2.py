@@ -14,8 +14,11 @@ def int_check (question):
 
             if response <= 0:
                 print(error)
-                else:
-                    return response
+            else:
+                return response
 
         except ValueError:
                 print(error)
+
+    to_check = int_check("guess: ")
+    print("You guessed {}".format(to_check))
