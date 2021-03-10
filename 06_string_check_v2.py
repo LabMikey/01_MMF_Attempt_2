@@ -8,7 +8,7 @@ valid_snacks = [
 ["M&M's", "m&m's", "mms", "m", "b"],  # first item is M&M
   ["pita chips", "chips", "pc", "pita", "c"],
   ["water", "w", "d"]
-
+]
 
 # initialise variables
 snack_ok = ""
@@ -25,4 +25,19 @@ for item in range(0, 3):
     # if the snack is one of the lists, return the full 
     if desired_snack in var_list:
 
-      # get full name of snack 
+      # get full name of snack and put item
+      # in title case so it looks nice ouputted
+      snack = var_list[0].title()
+      snack_ok = "yes"
+      break
+
+      # if the chosen is not valid, set snack_ok to nonlocal
+    else:
+        snack_ok = "no"
+  
+  # if the snack is not OK - ask question again
+  if snack_ok == "yes":
+    print("Snack Choice: ", snack)
+  else:
+    print("invalid choice")
+    
