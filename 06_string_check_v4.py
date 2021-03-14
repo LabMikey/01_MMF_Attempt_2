@@ -32,7 +32,7 @@ def string_check(choice, options):
 # , and possible abbreviations etc>
 valid_snacks = [
   ["popcorn", "p", "corn", "a"],
-["M&M's", "m&m's", "mms", "m", "b"],  # first item is M&M
+  ["M&M's", "m&m's", "mms", "m", "b"],  # first item is M&M
   ["pita chips", "chips", "pc", "pita", "c"],
   ["water", "w", "d"]
 ]
@@ -51,23 +51,23 @@ while check_snack == "invalid choice":
   want_snack = input("Do you want to order snacks? ").lower()
   check_snack = string_check(want_snack, yes_no)
 
-  # if they say yes, ask what snacks they want (and add to our snack)
-  if check_snack == "Yes":
+# if they say yes, ask what snacks they want (and add to our snack)
+if check_snack == "Yes":
 
-    desired_snack = ""
+  desired_snack = ""
 
-    while desired_snack != "xxx":
-      # ask user for desired snack and put it in lowrcase
-      desired_snack = input("Snack: ").lower()
+  while desired_snack != "xxx":
+    # ask user for desired snack and put it in lowrcase
+    desired_snack = input("Snack: ").lower()
 
-      if desired_snack == "xxx":
-        break
+    if desired_snack == "xxx":
+      break
 
     # check if snack is valid
     snack_choice = string_check(desired_snack, valid_snacks)
     print("Snack Choice: ", snack_choice)
 
-    # add snack to list...
+      # add snack to list...
 
     # check that snack is not the exit code before adding
     if snack_choice != "xxx" and snack_choice != "invalid choice":
