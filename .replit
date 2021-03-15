@@ -1,2 +1,2 @@
 language = "python3"
-run = "python 07_string_analyser.py"
+run = "python 06_string_check_v5.py"
