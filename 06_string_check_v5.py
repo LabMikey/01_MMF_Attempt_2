@@ -16,14 +16,15 @@ def string_check(choice, options):
       break      
 
   # if the chosen option is not valid, set is_valid to no
-    else:
-      is_valid = "no"
+  else:
+    is_valid = "No"
 
 # if the snack is not OK - ask question again.
-    if is_valid == "yes":
-      return chosen
-    else:
-      return "invalid choice"
+  if is_valid == "Yes":
+    return chosen
+  else:
+    print("Sorry please enter a valid option\n")
+    return "invalid choice"
 
 
 # regular expression to find if item starts with a number

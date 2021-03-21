@@ -17,12 +17,13 @@ def string_check(choice, options):
 
     # If the chosen is not valid, set is_valid to no
   else:
-    is_valid = "no"
+    is_valid = "No"
 
   # if the snack is not OK - ask question again
-  if is_valid == "yes":
+  if is_valid == "Yes":
     return chosen
   else:
+    print("Sorry that is not a valid options\n")
     return "invalid choice"
 
 
