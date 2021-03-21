@@ -60,6 +60,9 @@ if check_snack == "Yes":
 
   desired_snack = ""
   while desired_snack != "xxx":
+    
+    snack_row = []
+    
     # ask user for desired snack and put it in lowercase
     desired_snack = input("Snack: ").lower()
 
@@ -80,18 +83,20 @@ if check_snack == "Yes":
 
     # check if snack is valid
     snack_choice = string_check(desired_snack, valid_snacks)
+    print("Snack Choice: ", snack_choice)
 
     # check snack amount is valid (less than 5)
     if amount >= 5:
       print("Sorry - we have a four snack maximum")
       snack_choice = "invalid choice"
 
-    # add snack AND amount to list ...
-    amount_snack = "{} {}".format(amount, snack_choice)
+      # add snack And amount to list...
+      snack_row.append(amount)
+      snack_row.append(snack_choice)
 
     # check that snack is not the exit code before adding
     if snack_choice != "xxx" and snack_choice != "invalid choice":
-      snack_order.append(amount_snack)
+      snack_order.append(snack_row)
 
 # show snack orders
 print()
@@ -101,6 +106,9 @@ if len(snack_order) == 0:
 else:
   print("Snacks Ordered:")
 
-  for item in snack_order:
+  '''for item in snack_order:
     print(item)
+    '''
+  
+  print(snack_order)
 

@@ -80,6 +80,7 @@ if check_snack == "Yes":
 
     # check if snack is valid
     snack_choice = string_check(desired_snack, valid_snacks)
+    print("Snack Choice: ", snack_choice)
 
     # check snack amount is valid (less than 5)
     if amount >= 5:
