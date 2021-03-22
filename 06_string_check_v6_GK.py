@@ -90,9 +90,9 @@ if check_snack == "Yes":
       print("Sorry - we have a four snack maximum")
       snack_choice = "invalid choice"
 
-      # add snack And amount to list...
-      snack_row.append(amount)
-      snack_row.append(snack_choice)
+    # add snack And amount to list...
+    snack_row.append(amount)
+    snack_row.append(snack_choice)
 
     # check that snack is not the exit code before adding
     if snack_choice != "xxx" and snack_choice != "invalid choice":
