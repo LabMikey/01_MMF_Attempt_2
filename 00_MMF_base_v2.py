@@ -1,7 +1,7 @@
 # import statements
 
-# functions go here
 
+# functions go here
 
 # checks that ticket name is not blank
 def not_blank(question):
@@ -15,9 +15,6 @@ def not_blank(question):
             return response
         else:
             print("Sorry - this can't be blank")
-
-
-# checks for an interger between two values
 
 
 # checks for an interger more than 0
