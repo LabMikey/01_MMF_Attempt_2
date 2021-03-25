@@ -1,6 +1,6 @@
 # import statements
 import re
-ImportError
+import pandas
 
 
 # functions go here
@@ -75,12 +75,75 @@ def get_ticket_price():
   else:
       ticket_price = 6.5
 
+  return ticket_price 
 
-# ********** Mian routine ***********
+# ********** Main routine ***********
 
 # set up dictionaries / lists needed to hold data
+
+# intialise loop so that it runs at least once
+MAX_TICKETS = 5
+
+name = ""
+ticket_count = 0
+ticket_sales = 0
 
 # initialise lists (to make data-frame in due cource)
 all_names = []
 all_tickets = []
-  
+
+
+# Data Frame Dicttionary
+movie_data_dict = {
+  'Name': all_names,
+  'Ticket': all_tickets
+}
+
+
+# Ask user if they have used the progarm before & show instructions
+
+# Loop to get ticket details
+while name != "xxx" and ticket_count < MAX_TICKETS:
+
+  # check numbers of ticket limit has not been exceeded...
+  check_tickets(ticket_count, MAX_TICKETS)
+
+  # **** Get details for each ticket... ****
+
+  # Get name (cant be blank)
+  name = not_blank("Name: ")
+
+  # end the loop if the exit code is entered
+  if name == "xxx":
+    break
+
+  # get ticket price based on age
+  ticket_price = get_ticket_price()
+  # if age is invalid, restart loop (and get name again)
+  if ticket_price == "invalid ticket price":
+    continue
+
+  ticket_count += 1
+  ticket_sales += ticket_price
+
+  # add name and ticket price to lists
+  all_names.append(name)
+  all_tickets.append(ticket_price)
+
+  # get snacks
+
+  # get payment method (ie: work out if surcharge is needed)
+
+# End of ticket / snacks / payment Loop 
+
+# print details...
+movie_frame = pandas.DataFrame(movie_data_dict)
+print(movie_frame)
+
+# calculate ticket porfit...
+ticket_profit = ticket_sales - (5 * ticket_count)
+print("Ticket profit: ${:.2f}".format(ticket_profit))
+
+# Tell user if they have unsold tickets...
+if ticket_count == MAX_TICKETS:
+  print("You have sold all available tickets!")
