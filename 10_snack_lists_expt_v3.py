@@ -26,7 +26,8 @@ test_data = [
   [[2, 'Popcorn'], [1, 'Pita Chips'], [1, 'Orange Juice']],
   [[1, 'Popcorn'], [1, 'Orange Juice'], [2, 'M&Ms']],
   [[1, 'Water'], [1, 'Orange Juice']],
-  [[2, 'Popcorn'], [1, 'Water']]
+  [[2, 'Popcorn'], [1, 'Water']],
+  [[2, 'Pita Chips']]
 ]
 
 count = 0
@@ -50,6 +51,7 @@ for client_order in test_data:
       add_list[-1] = amount
 
 print()
+print("Names:", all_names)
 print("Popcorn: ", snack_lists[0])
 print("M&Ms:", snack_lists[1])
 print("Pita Chips:", snack_lists[2])
