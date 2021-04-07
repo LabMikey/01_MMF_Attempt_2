@@ -8,6 +8,14 @@ version = "1.20.2"
 
 [[package]]
 category = "main"
+description = "A placeholder for a future project."
+name = "p"
+optional = false
+python-versions = "*"
+version = "0.0.0"
+
+[[package]]
+category = "main"
 description = "Powerful data structures for data analysis, time series, and statistics"
 name = "pandas"
 optional = false
@@ -50,7 +58,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 version = "1.15.0"
 
 [metadata]
-content-hash = "706e962e562a9967fb02bfaf80b009e3741891a0da59f16f9b093d4221cfb7be"
+content-hash = "709fb4414d916396504a871f785cab12f50431f57b89b9a66de57118ecf1f6b0"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -79,6 +87,10 @@ numpy = [
     {file = "numpy-1.20.2-cp39-cp39-win_amd64.whl", hash = "sha256:924dc3f83de20437de95a73516f36e09918e9c9c18d5eac520062c49191025fb"},
     {file = "numpy-1.20.2-pp37-pypy37_pp73-manylinux2010_x86_64.whl", hash = "sha256:97ce8b8ace7d3b9288d88177e66ee75480fb79b9cf745e91ecfe65d91a856042"},
     {file = "numpy-1.20.2.zip", hash = "sha256:878922bf5ad7550aa044aa9301d417e2d3ae50f0f577de92051d739ac6096cee"},
+]
+p = [
+    {file = "p-0.0.0-py3-none-any.whl", hash = "sha256:9ac0c2fbbb9f4b25d3d24553308453da39fff48083dd09e6dbd00c23db659d37"},
+    {file = "p-0.0.0.tar.gz", hash = "sha256:cd2266bdd06ebffe24be02f2f68b7a1da6788444fb9d0b6b3b6f16747885aebf"},
 ]
 pandas = [
     {file = "pandas-1.2.3-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:4d821b9b911fc1b7d428978d04ace33f0af32bb7549525c8a7b08444bce46b74"},
