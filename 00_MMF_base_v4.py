@@ -114,15 +114,59 @@ name = ""
 ticket_count = 0
 ticket_sales = 0
 
+# lists for string checking function etc
+
+valid_snacks = [
+  ["popcorn", "p", "corn", "a"],
+  ["M&M's", "m&m's", "mms", "m", "b"],  # first item is M&M
+  ["pita chips", "chips", "pc", "pita", "c"],
+  ["water", "w", "d"],
+  ["orange juice", "orange", "juice", "oj", "j"]
+]
+
+yes_no = [
+  ["yes", "y"],
+  ["no", "n"] 
+]
+
+# regular expression to find if item starts with a number
+number_regex = "^[1-9]"
+
 # initialise lists (to make data-frame in due cource)
 all_names = []
 all_tickets = []
 
 
+popcorn = []
+mms = []
+pita_chips = []
+water = []
+orange_juice = []
+
+snack_lists = [popcorn, mms, pita_chips, water, orange_juice]
+
+# holds all snack orders...
+snack_order = []
+
 # Data Frame Dicttionary
+# Data Frame Dictionary
 movie_data_dict = {
   'Name': all_names,
-  'Ticket': all_tickets
+  'Ticket': all_tickets,
+  'Popcorn': popcorn,
+  'Water': water,
+  'Pita Chips': pita_chips,
+  'M&Ms': mms,
+  'Orange Juice': orange_juice
+}
+
+# cost of each snack
+price_dict = {
+  'Popcorn': 2.5,
+  'Water': 2,
+  'Pita Chips': 4.5,
+  'M&Ms': 3,
+  'Orange Juice': 3.25
 }
 
 
@@ -130,6 +174,9 @@ movie_data_dict = {
 
 # Loop to get ticket details
 while name != "xxx" and ticket_count < MAX_TICKETS:
+
+  # list to hold snack order, gets reset for each open
+  snack_row = []
 
   # check numbers of ticket limit has not been exceeded...
   check_tickets(ticket_count, MAX_TICKETS)
@@ -157,6 +204,56 @@ while name != "xxx" and ticket_count < MAX_TICKETS:
   all_tickets.append(ticket_price)
 
   # get snacks
+# ask user if they want a snack 
+check_snack = "invalid choice"
+while check_snack == "invalid choice":
+  want_snack = input("Do you want to order snacks? ").lower()
+  check_snack = string_check(want_snack, yes_no)
+
+  # If they say yes, ask what snacks they want (and add to our snack list)
+  if check_snack == "Yes":
+
+    desired_snack = ""
+    while desired_snack != "xxx":
+      
+      snack_row = []
+      
+      # ask user for desired snack and put it in lowercase
+      desired_snack = input("Snack: ").lower()
+
+      if desired_snack == "xxx":
+        break
+      
+      # if item has a number, separate it into 2 (number / snack)
+      if re.match(number_regex, desired_snack):
+        amount = int(desired_snack[0])
+        desired_snack = desired_snack[1:]
+      
+      else:
+        amount = 1
+        desired_snack = desired_snack
+      
+      # remove white space around snack
+      desired_snack = desired_snack.strip()
+
+      # check if snack is valid
+      snack_choice = string_check(desired_snack, valid_snacks)
+      print("Snack Choice: ", snack_choice)
+
+      # check snack amount is valid (less than 5)
+      if amount >= 5:
+        print("Sorry - we have a four snack maximum")
+        snack_choice = "invalid choice"
+
+      # add snack And amount to list...
+      snack_row.append(amount)
+      snack_row.append(snack_choice)
+
+      # check that snack is not the exit code before adding
+      if snack_choice != "xxx" and snack_choice != "invalid choice":
+        snack_order.append(snack_row)
+
+
 
   # get payment method (ie: work out if surcharge is needed)
 
