@@ -60,7 +60,8 @@ while name != "xxx":
 
   total = subtotal + surcharge
     
-  print("Name: {} | Subtotal: ${:.2f} | Surcharge: ${:.2f} |Total Payable: ${:.2f}".format(name, subtotal, surcharge, total))
+  print("Name: {} | Subtotal: ${:.2f} | Surcharge: ${:.2f} | " 
+        "Total Payable: ${:.2f}".format(name, subtotal, surcharge, total))
 
 
 
