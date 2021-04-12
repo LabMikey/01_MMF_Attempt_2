@@ -1,9 +1,10 @@
-
+# import statements
 import re
 import pandas
 
 
 # functions go here
+
 # checks that ticket name is not blank
 def not_blank(question):
   valid = False
@@ -15,7 +16,8 @@ def not_blank(question):
     if response != "":
       return response
     else:
-      print("Sorry - this can't be blank")
+      print("Sorry - this can't be blank, "
+      "please enter your name")
 
 
 # checks for an interger more than 0
@@ -34,6 +36,7 @@ def int_check(question):
             else:
                 return response
 
+        # if an interger is not entered, display an error message
         except ValueError:
             print(error)
 
@@ -102,8 +105,8 @@ def string_check(choice, options):
     return "invalid choice"
 
 
+# gets list of snacks
 def get_snack():
-  print("running get snack...")
   # regular expression to find if item starts with a number
   number_regex = "^[1-9]"
 
@@ -114,7 +117,7 @@ def get_snack():
   ["pita chips", "chips", "pc", "pita", "c"],
   ["water", "w", "d"],
   ["orange juice", "orange", "juice", "oj", "j"]
-  ]
+]
   snack_order = []
 
   desired_snack = ""
