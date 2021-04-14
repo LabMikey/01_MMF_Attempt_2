@@ -127,8 +127,7 @@ def get_snack():
     ["M&Ms", "m&m's", "mms", "m", "b"],    # first item is M&Ms for inclusion in output
     ["pita chips", "chips", "pc", "pita", "c"],
     ["water", "w", "d"],
-    ["orange juice", "oj", "o", "juice", "orange", "e"]
-]
+    ["orange juice", "oj", "o", "juice", "orange", "e"] ]
 
     # holds snack order for a single user.
     snack_order = []
@@ -274,25 +273,25 @@ while name != "xxx" and ticket_count < MAX_TICKETS:
         Snack_order =[]
     
       # Assume no snacks have been bought...
-  for item in snack_lists:
-    item.append(0)
+    for item in snack_lists:
+        item.append(0)
 
     for item in snack_order:
-    if len(item) > 0:  
-      to_find = (item[1])
-      amount = (item[0])
-      add_list = movie_data_dict[to_find]
-      add_list[-1] = amount
+        if len(item) > 0:  
+            to_find = (item[1])
+            amount = (item[0])
+            add_list = movie_data_dict[to_find]
+            add_list[-1] = amount
 
     # Get payment method (ie: work out if surcharge is needed)
     # Ask for payment method
-  how_pay = "invalid choice"
-  while how_pay == "invalid choice":
-    how_pay = input("Please choose a payment method (cash / credit)? ").lower()
-    how_pay = string_checker(how_pay, pay_method)
+    how_pay = "invalid choice"
+    while how_pay == "invalid choice":
+        how_pay = input("Please choose a payment method (cash / credit)? ").lower()
+        how_pay = string_check(how_pay, pay_method)
 
     if how_pay == "Credit":
-        surcharge_multiplier = 0.05 * subtotal
+        surcharge_multiplier = 0.05
     else:
         surcharge_multiplier = 0
 
