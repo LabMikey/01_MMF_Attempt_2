@@ -207,6 +207,8 @@ orange_juice = []
 
 snack_lists = [popcorn, mms, pita_chips, water, orange_juice]
 
+# store surcharge multiplier
+surcharge_mult_list = []
 
 # Data Frame Dictionary
 movie_data_dict = {
@@ -216,7 +218,8 @@ movie_data_dict = {
     'Water': water,
     'Pita Chips': pita_chips,
     'M&Ms': mms,
-    'Orange Juice': orange_juice
+    'Orange Juice': orange_juice,
+    'Surcharge_Multiplier': surcharge_mult_list
 }
 
 # cost of each snack
@@ -294,6 +297,8 @@ while name != "xxx" and ticket_count < MAX_TICKETS:
         surcharge_multiplier = 0.05
     else:
         surcharge_multiplier = 0
+    
+    surcharge_mult_list.append(surcharge_multiplier)
 
 # End of tickets / snacks / payment loop
 
@@ -305,17 +310,35 @@ movie_frame = movie_frame.set_index('Name')
 # create column called 'Sub Total'
 # fill it price for snacks and Ticket
 movie_frame["Sub Total"] = \
-  movie_frame['Ticket'] + \
-  movie_frame['Popcorn']*price_dict['Popcorn'] + \
-  movie_frame['Water']*price_dict['Water'] + \
-  movie_frame['Pita Chips']*price_dict['Pita Chips'] + \
-  movie_frame['M&Ms']*price_dict['M&Ms'] + \
-  movie_frame['Orange Juice']*price_dict['Orange Juice']
+    movie_frame['Ticket'] + \
+    movie_frame['Popcorn']*price_dict['Popcorn'] + \
+    movie_frame['Water']*price_dict['Water'] + \
+    movie_frame['Pita Chips']*price_dict['Pita Chips'] + \
+    movie_frame['M&Ms']*price_dict['M&Ms'] + \
+    movie_frame['Orange Juice']*price_dict['Orange Juice']
+
+movie_frame["Surcharge"] =\
+    movie_frame["Sub Total"] * movie_frame["Surcharge_Multiplier"]
+
+movie_frame["Total"] = movie_frame["Sub Total"] + \
+    movie_frame["Surcharge"]
 
 # Shorten column names
-movie_frame = movie_frame.rename(columns ={'Orange Juice': 'OJ', 'Pita Chips': 'Chips'})
+movie_frame = movie_frame.rename(columns ={'Orange Juice': 'OJ', 'Pita Chips': 'Chips', 'Surcharge_Multiplier': 'SM'})
 
-print(movie_frame)
+# set up columns to be printed...
+pandas.set_option('display.max_columns', None)
+
+# Display numbers to 2 dp...
+pandas.set_option('precision', 2)
+
+print_all = input("Print all columns??  (y)  for yes ")
+if print_all == "y":
+    print(movie_frame)
+else:
+    print(movie_frame[['Ticket', 'Subtotal', 'Surcharge', 'Total']])
+
+print()
 
 # Calculate ticket profit...
 ticket_profit = ticket_sales - (5 * ticket_count)
