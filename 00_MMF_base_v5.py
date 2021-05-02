@@ -199,6 +199,7 @@ ticket_sales = 0
 # Initialise lists (to make data-frame in due course)
 all_names = []
 all_tickets = []
+snacks = []
 popcorn = []
 mms = []
 pita_chips = []
@@ -219,7 +220,8 @@ movie_data_dict = {
     'Pita Chips': pita_chips,
     'M&Ms': mms,
     'Orange Juice': orange_juice,
-    'Surcharge_Multiplier': surcharge_mult_list
+    'Surcharge_Multiplier': surcharge_mult_list,
+    'Snacks': snacks
 }
 
 # cost of each snack
@@ -316,6 +318,10 @@ movie_frame["Sub Total"] = \
     movie_frame['Pita Chips']*price_dict['Pita Chips'] + \
     movie_frame['M&Ms']*price_dict['M&Ms'] + \
     movie_frame['Orange Juice']*price_dict['Orange Juice']
+
+movie_frame["Sub Total"] = \
+    movie_frame['Ticket'] + \
+    movie_frame['Snacks']
 
 movie_frame["Surcharge"] =\
     movie_frame["Sub Total"] * movie_frame["Surcharge_Multiplier"]
