@@ -336,7 +336,7 @@ print_all = input("Print all columns??  (y)  for yes ")
 if print_all == "y":
     print(movie_frame)
 else:
-    print(movie_frame[['Ticket', 'Subtotal', 'Surcharge', 'Total']])
+    print(movie_frame[['Ticket', 'Sub Total', 'Surcharge', 'Total']])
 
 print()
 
