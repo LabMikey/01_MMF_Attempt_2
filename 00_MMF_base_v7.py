@@ -332,7 +332,7 @@ movie_frame = movie_frame.rename(columns ={'Orange Juice': 'OJ', 'Pita Chips': '
 
 # Set up summary dataframe
 # populate snack items...
-for item in sncak_lists:
+for item in snack_lists:
     # sum items in each snack list
     summary_data.append(sum(item))
 
