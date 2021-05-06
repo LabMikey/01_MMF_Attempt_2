@@ -253,7 +253,7 @@ while name != "xxx" and ticket_count < MAX_TICKETS:
     # **** Get details for each ticket... ****
 
     # Get name (can't be blank)
-    name = not_blank("Name: ")
+    name = not_blank("Name:")
 
     # end the loop if the exit code is entered
     if name == "xxx":
