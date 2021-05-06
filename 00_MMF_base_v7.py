@@ -352,7 +352,7 @@ summary_data.append(total_profit)
 
 # create summary frame
 summary_frame = pandas.DataFrame(summary_data_dict)
-summary_frame = summary_frame.set_index('item')
+summary_frame = summary_frame.set_index('Item')
 
 # set up columns to be printed...
 pandas.set_option('display.max_columns', None)
@@ -368,7 +368,7 @@ print(movie_frame[['Ticket', 'Snacks', 'Sub Total', 'Surcharge', 'Total']])
 
 print()
 
-print("*** Snack / Profit Summary ***")
+print("*** Snack / Profit Summary ****")
 print()
 print(summary_frame)
 
